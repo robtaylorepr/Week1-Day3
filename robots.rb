@@ -16,6 +16,10 @@ class Robot
   def say_name
     puts "My name is #{name}"
   end
+
+  def method_missing(m, *args, &block)
+    puts "Does not compute"
+  end
 end
 
 class BendingUnit < Robot
@@ -103,6 +107,15 @@ student_array.each {|student|
   when 3
     puts "#{student.name} is a ActorUnit"
   else
-    puts "Unidentified Flying Robot"
+    puts "Rand error - Unidentified Flying Robot"
   end
 }
+
+# When Robot called with an undefined method..
+# instead of responding with an error, say "Does not computer"
+puts ' '
+puts "When Robot called with an undefined method.."
+puts "   instead of responding with an error, "
+puts "   say 'Does not compute' "
+puts "   puts rob.silly"
+puts rob.silly
